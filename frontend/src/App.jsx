@@ -1,7 +1,10 @@
 import { Box } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
-import LandingPage from "./pages/LandingPage";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import SignInPage from "./pages/SignInPage";
 
 function App() {
   return (
@@ -14,7 +17,15 @@ function App() {
       }}
     >
       <Navbar />
-      <LandingPage />
+
+      <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+        </Routes>
+      </Box>
+
       <Footer />
     </Box>
   );
